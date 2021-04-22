@@ -7,21 +7,27 @@
     </h1>
 
 
-    <ul class="nav nav-pills nav-justified">
+    <ul class="nav nav-pills nav-justified mb-1">
       
       <li class="nav-item">
+        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.photos_count %> </span>
         <%= link_to "Posts", user_path(@user.username), class: "nav-link"%>
+        
       </li>
       <li class="nav-item">
+        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.likes_count %> </span>
         <%= link_to "Likes", liked_photos_path(@user.username), class: "nav-link"%>
       </li>
       <li class="nav-item">
+        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.feed.count %> </span>
         <%= link_to "Feed", user_feed_path(@user.username), class: "nav-link"%>
       </li>
       <li class="nav-item">
+        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.followers.count %> </span>
         <%= link_to "Followers", followers_path(@user.username), class: "nav-link"%>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
+        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.leaders.count %> </span>
         <%= link_to "Following", follows_path(@user.username), class: "nav-link active"%>
       </li>
     </ul>
@@ -31,6 +37,14 @@
 </div>
 
 
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item list-group-item-action list-group-item - secondary">Username</li>
+      <li class="list-group-item list-group-item-action list-group-item - secondary">Unfollow</li>
+    </ul>
+  </div>
+</div>
 
 <% @user.leaders.each do |follow| %> 
   <%= render "follow_requests/follow_summary", follow: follow %>

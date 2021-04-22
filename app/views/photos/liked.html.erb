@@ -7,21 +7,27 @@
     </h1>
 
 
-    <ul class="nav nav-pills nav-justified">
+    <ul class="nav nav-pills nav-justified mb-1">
       
       <li class="nav-item">
+        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.photos_count %> </span>
         <%= link_to "Posts", user_path(@user.username), class: "nav-link"%>
+        
       </li>
       <li class="nav-item">
+        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.likes_count %> </span>
         <%= link_to "Likes", liked_photos_path(@user.username), class: "nav-link active"%>
       </li>
       <li class="nav-item">
+        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.feed.count %> </span>
         <%= link_to "Feed", user_feed_path(@user.username), class: "nav-link"%>
       </li>
       <li class="nav-item">
+        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.followers.count %> </span>
         <%= link_to "Followers", followers_path(@user.username), class: "nav-link"%>
       </li>
       <li class="nav-item">
+        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.leaders.count %> </span>
         <%= link_to "Following", follows_path(@user.username), class: "nav-link"%>
       </li>
     </ul>
