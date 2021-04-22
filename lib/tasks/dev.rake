@@ -75,7 +75,7 @@ task sample_data: :environment do
     rand(15).times do
       photo = user.own_photos.create(
         caption: Faker::Quote.jack_handey,
-        image: "https://loremflickr.com/500/500?lock=#{rand(700)}"
+        image: "https://picsum.photos/id/#{rand(30)}/500/500"
       )
 
       
