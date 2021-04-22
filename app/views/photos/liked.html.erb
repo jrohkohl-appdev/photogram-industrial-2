@@ -1,7 +1,7 @@
 <div class="row">
 
   <div class="col-md-6 offset-md-3">
-
+    
     <h1>
       <%= @user.username %>
     </h1>
@@ -10,10 +10,10 @@
     <ul class="nav nav-pills nav-justified">
       
       <li class="nav-item">
-        <%= link_to "Posts", user_path(@user.username), class: "nav-link active"%>
+        <%= link_to "Posts", user_path(@user.username), class: "nav-link"%>
       </li>
       <li class="nav-item">
-        <%= link_to "Likes", liked_photos_path(@user.username), class: "nav-link"%>
+        <%= link_to "Likes", liked_photos_path(@user.username), class: "nav-link active"%>
       </li>
       <li class="nav-item">
         <%= link_to "Feed", user_feed_path(@user.username), class: "nav-link"%>
@@ -31,10 +31,6 @@
 </div>
 
 
-<% @user.own_photos.each do |photo| %>
+<% @user.liked_photos.each do |photo| %>
   <%= render "photos/photo", photo: photo %>
 <% end %>
-
-
-
-
