@@ -2,21 +2,25 @@
   <%= @user.username %>
 </h1>
 
-<h2>Photos</h2>
+<hr>
+
+<h3>Photos</h3>
 
 <div class="row mb-4">
 
   <div class = "col-md-6 offset-md-3">
 
-    <%= @user.own_photos.each do |photo| %>
+    <% @user.own_photos.each do |photo| %>
       <div class="card">
          <%= image_tag photo.image, class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= photo.owner.username%></h5>
           <p class="card-text"><%= photo.caption %></p>
+          <h6 class="card-subtitle mt-4 text-muted">Comments</h6>
         </div>
+
         <ul class="list-group list-group-flush">
-          <%= photo.comments.each do |comment|%>
+          <% photo.comments.each do |comment|%>
             <li class="list-group-item">
               <div class="media">
                 <img src="..." class="mr-3" alt="...">
