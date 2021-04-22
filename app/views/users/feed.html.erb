@@ -11,7 +11,7 @@
       
       <li class="nav-item">
         <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.photos_count %> </span>
-        <%= link_to "Posts", user_path(@user.username), class: "nav-link active"%>
+        <%= link_to "Posts", user_path(@user.username), class: "nav-link"%>
         
       </li>
       <li class="nav-item">
@@ -19,8 +19,8 @@
         <%= link_to "Likes", liked_photos_path(@user.username), class: "nav-link"%>
       </li>
       <li class="nav-item">
-        <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.feed.count %> </span>
-        <%= link_to "Feed", user_feed_path(@user.username), class: "nav-link"%>
+        <span class="badge badge-pill badge-dark" style="float: right; mr-5"><%= @user.feed.count %> </span>
+        <%= link_to "Feed", user_feed_path(@user.username), class: "nav-link active"%>
       </li>
       <li class="nav-item">
         <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.followers.count %> </span>
@@ -37,10 +37,6 @@
 </div>
 
 
-<% @user.own_photos.each do |photo| %>
+<% @user.feed.each do |photo| %>
   <%= render "photos/photo", photo: photo %>
 <% end %>
-
-
-
-

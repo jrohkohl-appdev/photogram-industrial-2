@@ -11,7 +11,7 @@
       
       <li class="nav-item">
         <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.photos_count %> </span>
-        <%= link_to "Posts", user_path(@user.username), class: "nav-link active"%>
+        <%= link_to "Posts", user_path(@user.username), class: "nav-link"%>
         
       </li>
       <li class="nav-item">
@@ -28,7 +28,7 @@
       </li>
       <li class="nav-item">
         <span class="badge badge-pill badge-dark" style="float: right;"><%= @user.leaders.count %> </span>
-        <%= link_to "Following", follows_path(@user.username), class: "nav-link"%>
+        <%= link_to "Following", follows_path(@user.username), class: "nav-link active"%>
       </li>
     </ul>
     <hr>
@@ -37,10 +37,15 @@
 </div>
 
 
-<% @user.own_photos.each do |photo| %>
-  <%= render "photos/photo", photo: photo %>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item list-group-item-action list-group-item - secondary">Username</li>
+      <li class="list-group-item list-group-item-action list-group-item - secondary">Unfollow</li>
+    </ul>
+  </div>
+</div>
+
+<% @user.leaders.each do |follow| %> 
+  <%= render "follow_requests/follow_summary", follow: follow %>
 <% end %>
-
-
-
-
